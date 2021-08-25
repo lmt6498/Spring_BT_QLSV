@@ -27,7 +27,7 @@
         <td><input type="text" th:field="*{address}"></td>
       </tr>
       <tr>
-        <th>Branch</th>
+        <th>Classes</th>
         <td><select th:field="*{classes}">
           <option th:each="cl:${classes}" th:value="${cl.id}" th:text="${cl.name}"></option>
         </select></td>

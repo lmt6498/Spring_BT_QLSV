@@ -31,7 +31,9 @@
         </tbody>
     </table>
 </div>
-<a href="/show?pageNumber=1" class="btn btn-warning">1</a>
+<span><a th:if="${students.hasPrevious()}" th:href="@{/home (pageNumber = ${students.number - 1})}"><<<<</a></span>
+<span th:text="${students.number + 1}"></span>/<span th:text="${students.totalPages}"></span>
+<span><a th:if="${students.hasNext()}" th:href="@{/home (pageNumber = ${students.number + 1})}">>>>></a></span>
 <div th:replace="/layout :: footer"></div>
 </body>
 </html>

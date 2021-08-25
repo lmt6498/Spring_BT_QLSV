@@ -31,9 +31,9 @@ public class StudentController {
         return classesService.findAll();
     }
     @GetMapping("/home")
-    public ModelAndView home(@RequestParam(defaultValue = "0") int pageNumber,@RequestParam(defaultValue = "5") int sizePage) {
+    public ModelAndView home(@RequestParam(defaultValue = "0") int pageNumber) {
         ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.addObject("students", studentService.findAll(PageRequest.of(pageNumber, sizePage)));
+        modelAndView.addObject("students", studentService.findAll(PageRequest.of(pageNumber,3,Sort.by("name"))));
         return modelAndView;
     }
 
