@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<div th:replace="/layout :: header"></div>
+<div class="container">
+  <h2>Create</h2>
+  <form action="/create" method="post" th:object="${student}">
+    <table class="table">
+      <tbody>
+      <tr>
+        <th>Name</th>
+        <td><input type="text" th:field="*{name}">
+          <span style="color: red" th:if="${#fields.hasErrors('name')}"
+                th:errors="*{name}"></span></td>
+      </tr>
+      <tr>
+        <th>Date of Birth</th>
+        <td><input type="date" th:field="*{dateOfBirth}">
+          <span style="color: red" th:if="${#fields.hasErrors('dateOfBirth')}"
+                th:errors="*{dateOfBirth}"></span></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td><input type="text" th:field="*{email}">
+          <span style="color: red" th:if="${#fields.hasErrors('email')}"
+                th:errors="*{email}"></span></td>
+      </tr>
+      <tr>
+        <th>Address</th>
+        <td><input type="text" th:field="*{address}">
+          <span style="color: red" th:if="${#fields.hasErrors('address')}"
+                th:errors="*{address}"></span></td>
+        </td>
+      </tr>
+        <th>Classes</th>
+        <td><select th:field="*{classes}">
+          <option th:each="cl:${classes}" th:value="${cl.id}" th:text="${cl.name}"></option>
+        </select></td>
+      </tr>
+
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-success">Create</button>
+    <a href="/home" class="btn btn-primary">Cancel</a>
+  </form>
+</div>
+<div th:replace="/layout :: footer"></div>
+</body>
+</html>

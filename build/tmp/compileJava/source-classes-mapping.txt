@@ -1,0 +1,24 @@
+models/Student.java
+ models.Student
+services/IClassesService.java
+ services.IClassesService
+config/ApplicationInitializer.java
+ config.ApplicationInitializer
+repository/IStudentRepo.java
+ repository.IStudentRepo
+repository/IClassesRepo.java
+ repository.IClassesRepo
+services/IStudentService.java
+ services.IStudentService
+services/IGeneralService.java
+ services.IGeneralService
+config/ApplicationConfig.java
+ config.ApplicationConfig
+services/ClassesService.java
+ services.ClassesService
+models/Classes.java
+ models.Classes
+services/StudentService.java
+ services.StudentService
+controllers/StudentController.java
+ controllers.StudentController

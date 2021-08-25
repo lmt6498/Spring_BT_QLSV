@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<div th:replace="/layout :: header"></div>
+<div class="container">
+
+
+    <h2 style="text-align: center">Show Student List</h2>
+
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Classes</th>
+            <th colspan="2">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student : ${students}">
+            <td th:text="${student.id}"></td>
+            <td><a th:href="@{/view/{id}(id=${student.id})}"><span th:text="${student.name}"></span></a></td>
+            <td th:text="${student.classes.name}"></td>
+            <td><a th:href="@{/edit/{id}(id=${student.id})}" class="btn btn-warning">Edit</a></td>
+            <td><a th:href="@{/delete/{id}(id=${student.id})}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<a href="/show?pageNumber=1" class="btn btn-warning">1</a>
+<div th:replace="/layout :: footer"></div>
+</body>
+</html>

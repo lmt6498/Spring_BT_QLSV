@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<div th:replace="/layout :: header"></div>
+<div class="container">
+  <h2>Edit</h2>
+  <form method="post" th:object="${student}">
+    <input type="text" th:field="*{id}" hidden>
+    <table class="table">
+      <tbody>
+      <tr>
+        <th>Name</th>
+        <td><input type="text" th:field="*{name}"></td>
+      </tr>
+      <tr>
+        <th>Date of Birth</th>
+        <td><input type="date" th:field="*{dateOfBirth}"></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td><input type="text" th:field="*{email}"></td>
+      </tr>>
+      <tr>
+        <th>Address</th>
+        <td><input type="text" th:field="*{address}"></td>
+      </tr>
+      <tr>
+        <th>Branch</th>
+        <td><select th:field="*{classes}">
+          <option th:each="cl:${classes}" th:value="${cl.id}" th:text="${cl.name}"></option>
+        </select></td>
+      </tr>
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-success">Edit</button>
+    <a href="/home" class="btn btn-primary">Cancel</a>
+
+  </form>
+</div>
+<div th:replace="/layout :: footer"></div>
+</body>
+</html>

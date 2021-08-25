@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<div th:replace="/layout :: header"></div>
+<div class="container">
+
+
+  <h1>Student Detail</h1>
+  <table>
+    <tr>
+      <td th:text="'ID: ' + ${student.id}"></td>
+    </tr>
+    <tr>
+      <td th:text="'Name: ' + ${student.name}"></td>
+    </tr>
+    <tr>
+      <td th:text="'Date of Birth: ' +${student.dateOfBirth}"></td>
+    </tr>
+    <tr>
+      <td th:text="'Email: ' +${student.email}"></td>
+    </tr>
+    <tr>
+      <td th:text="'Address: ' +${student.address}"></td>
+    </tr>
+    <tr>
+      <td th:text="'Classes: ' +${student.classes.name}"></td>
+    </tr>
+  </table>
+  <a href="/home">Back to List</a>
+</div>
+
+<div th:replace="/layout :: footer"></div>
+</body>
+</html>
