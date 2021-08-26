@@ -10,6 +10,7 @@ public class Student {
     private Integer id;
     private String name;
     private Date dateOfBirth;
+    private String img;
     private String email;
     private String address;
     @ManyToOne
@@ -19,13 +20,22 @@ public class Student {
     public Student() {
     }
 
-    public Student(Integer id, String name, Date dateOfBirth, String email, String address, Classes classes) {
+    public Student(Integer id, String name, Date dateOfBirth, String img, String email, String address, Classes classes) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
+        this.img = img;
         this.email = email;
         this.address = address;
         this.classes = classes;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public Integer getId() {

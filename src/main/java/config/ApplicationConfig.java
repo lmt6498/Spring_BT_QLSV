@@ -84,7 +84,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     // chỉ cho Spring biết chỗ lấy tài liệu tĩnh.(js,css,img)
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/i/**")
-                .addResourceLocations("file:D:\\JavaProject\\Spring_Homework_QLSP\\src\\main\\webapp/");
+                .addResourceLocations("file:D:\\JavaProject\\Spring_BT_QLSV\\src\\main\\webapp/");
     }
 
     @Bean

@@ -10,13 +10,17 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import services.IClassesService;
 import services.IStudentService;
 
 import javax.validation.Valid;
+import java.io.File;
+import java.io.IOException;
 
 @Controller
 public class StudentController {
@@ -52,14 +56,23 @@ public class StudentController {
     }
 
     @PostMapping("/create")
-    public ModelAndView create(@Valid @ModelAttribute Student student, BindingResult bindingResult) {
+    public ModelAndView create(@RequestParam MultipartFile uppImg, @Valid @ModelAttribute Student student, BindingResult bindingResult) {
         if (bindingResult.hasFieldErrors()) {
             return new ModelAndView("create");
-        } else {
+        }
+        String nameImg = uppImg.getOriginalFilename();
+        try {
+            FileCopyUtils.copy(uppImg.getBytes(), new File("D:\\JavaProject\\Spring_BT_QLSV\\src\\main\\webapp\\img/" + nameImg));
+            String urlImg = "/i/img/" + nameImg;
+            student.setImg(urlImg);
+        } catch (IOException e) {
+            System.err.println("chưa uppload file");
+        }
+
             studentService.save(student);
             ModelAndView modelAndView = new ModelAndView("redirect:/home");
             return modelAndView;
-        }
+
     }
 
     @GetMapping("/edit/{id}")
@@ -71,14 +84,23 @@ public class StudentController {
     }
 
     @PostMapping("/edit/{id}")
-    public ModelAndView edit(@Valid @ModelAttribute Student student, BindingResult bindingResult) {
+    public ModelAndView edit(@RequestParam MultipartFile uppImg, @Valid @ModelAttribute Student student, BindingResult bindingResult) {
         if (bindingResult.hasFieldErrors()) {
             return new ModelAndView("edit");
-        } else {
+        }
+        String nameImg = uppImg.getOriginalFilename();
+        try {
+            FileCopyUtils.copy(uppImg.getBytes(), new File("D:\\JavaProject\\Spring_BT_QLSV\\src\\main\\webapp\\img/" + nameImg));
+            String urlImg = "/i/img/" + nameImg;
+            student.setImg(urlImg);
+        } catch (IOException e) {
+            System.err.println("chưa uppload file");
+        }
+
             studentService.save(student);
             ModelAndView modelAndView = new ModelAndView("redirect:/home");
             return modelAndView;
-        }
+
     }
 
     @GetMapping("/delete/{id}")

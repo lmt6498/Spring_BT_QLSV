@@ -1,17 +1,17 @@
-models/Student.java
- models.Student
+services/IStudentService.java
+ services.IStudentService
 services/IClassesService.java
  services.IClassesService
-config/ApplicationInitializer.java
- config.ApplicationInitializer
+services/IGeneralService.java
+ services.IGeneralService
 repository/IStudentRepo.java
  repository.IStudentRepo
 repository/IClassesRepo.java
  repository.IClassesRepo
-services/IStudentService.java
- services.IStudentService
-services/IGeneralService.java
- services.IGeneralService
+models/Student.java
+ models.Student
+config/ApplicationInitializer.java
+ config.ApplicationInitializer
 config/ApplicationConfig.java
  config.ApplicationConfig
 services/ClassesService.java

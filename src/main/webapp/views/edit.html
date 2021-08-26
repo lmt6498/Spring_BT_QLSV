@@ -6,7 +6,7 @@
 <div th:replace="/layout :: header"></div>
 <div class="container">
   <h2>Edit</h2>
-  <form method="post" th:object="${student}">
+  <form method="post" th:object="${student}" enctype="multipart/form-data">
     <input type="text" th:field="*{id}" hidden>
     <table class="table">
       <tbody>
@@ -17,6 +17,10 @@
       <tr>
         <th>Date of Birth</th>
         <td><input type="date" th:field="*{dateOfBirth}"></td>
+      </tr>
+      <tr>
+        <td>Image:<img th:src="*{img}" width="150" height="150"></td>
+        <td>Change Image: <input type="file" name="uppImg"></td>
       </tr>
       <tr>
         <th>Email</th>

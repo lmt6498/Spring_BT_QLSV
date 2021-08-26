@@ -6,7 +6,7 @@
 <div th:replace="/layout :: header"></div>
 <div class="container">
   <h2>Create</h2>
-  <form action="/create" method="post" th:object="${student}">
+  <form action="/create" method="post" th:object="${student}" enctype="multipart/form-data">
     <table class="table">
       <tbody>
       <tr>
@@ -14,6 +14,12 @@
         <td><input type="text" th:field="*{name}">
           <span style="color: red" th:if="${#fields.hasErrors('name')}"
                 th:errors="*{name}"></span></td>
+      </tr>
+      <tr>
+        <th>Image</th>
+        <td><input type="file" name="uppImg"></td>
+          <span style="color: red" th:if="${#fields.hasErrors('name')}"
+                th:errors="*{img}"></span></td>
       </tr>
       <tr>
         <th>Date of Birth</th>
